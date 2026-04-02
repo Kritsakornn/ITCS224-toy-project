@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Confirmed</h1>
+        <p>Reference Number: {{ booking.ref }}</p>
+        <p>Room: {{ rooms[booking.room_type].name }}</p>
+        <p>Check-in: {{ booking.checkin }}</p>
+        <p>Check-out: {{ booking.checkout }}</p>
+        <p>Name: {{ booking.name }}</p>
+        <p>Email: {{ booking.email }}</p>
+        <p>Total: ${{ total }}</p>
+        <a href="/" class="btn">Make Another Booking</a>
+        <a href="/cancel">Cancel Booking</a>
+    </div>
+</body>
+</html>

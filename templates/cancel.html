@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel Booking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Cancel Booking</h1>
+        {% if success is defined %}
+            {% if success %}
+                <p>Booking cancelled successfully.</p>
+                <p>Reference: {{ booking.ref }}</p>
+                <p>Room: {{ rooms[booking.room_type].name }}</p>
+            {% else %}
+                <p>Booking not found.</p>
+            {% endif %}
+        {% endif %}
+        <form action="/cancel" method="post">
+            <label for="ref">Reference Number:</label>
+            <input type="text" id="ref" name="ref" required>
+            <button type="submit" class="btn">Cancel Booking</button>
+        </form>
+        <a href="/">Back to Search</a>
+    </div>
+</body>
+</html>
